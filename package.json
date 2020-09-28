@@ -1,0 +1,77 @@
+{
+  "name": "art-timer",
+  "version": "0.0.1",
+  "description": "Aplicativo para contabilizar o tempo de trabalho em uma arte.",
+  "author": "Marcus Maia <contato@marcusmaia.com.br>",
+  "license": "MIT",
+  "keywords": [
+    "art",
+    "timer",
+    "countdown",
+    "app",
+    "usage",
+    "work",
+    "timer",
+    "time",
+    "sheet",
+    "electron"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcusagm/Art-Timer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/marcusagm/Art-Timer/issues"
+  },
+  "homepage": "https://github.com/marcusagm/Art-Timer#readme",
+  "main": "src/electron.js",
+  "dependencies": {
+    "active-win": "^6.2.0",
+    "electron-active-window": "0.0.4",
+    "iohook": "^0.6.6",
+    "ps-list": "^7.2.0"
+  },
+  "devDependencies": {
+    "electron-builder": "^22.8.1",
+    "electron": "4.0.4"
+  },
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist-all": "electron-builder -mw",
+    "dist": "electron-builder",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "iohook": {
+    "targets": [
+      "node-83",
+      "electron-69"
+    ],
+    "platforms": [
+      "win32",
+      "darwin",
+      "linux"
+    ],
+    "arches": [
+      "x64",
+      "ia32"
+    ]
+  },
+  "build": {
+    "productName": "ArtTimer",
+    "appId": "com.marcusagm.arttimer",
+    "mac": {
+      "target": "dir",
+      "category": "public.app-category.productivity"
+    },
+    "win": {
+      "target": "zip"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    }
+  }
+}

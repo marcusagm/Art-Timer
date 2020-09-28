@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Art Timer</title>
+        <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+        <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+        <link rel="stylesheet" type="text/css" href="../assets/styles/fonts.css">
+        <link rel="stylesheet" type="text/css" href="../assets/styles/main.css">
+    </head>
+    <body>
+        <div class="app-wrapper">
+            <div class="app-timer paused" id="app-timer">
+                <span id="timer-hours">00</span>:<span id="timer-minutes">00</span>:<span id="timer-seconds">00</span>
+            </div>
+            <div class="app-actions">
+                <div id="btn-timer-run" class="btn-timer btn-timer-run">
+                    <img src="../assets/images/play-solid.svg" alt="Play">
+                </div>
+                <div id="btn-timer-reset" class="btn-timer btn-timer-reset">
+                    <img src="../assets/images/history-solid.svg" alt="Reset">
+                </div>
+                <div id="btn-timer-config" class="btn-timer btn-timer-config">
+                    <img src="../assets/images/cog-solid.svg" alt="Configurations">
+                </div>
+                <div id="btn-timer-close" class="btn-timer btn-timer-close">
+                    <img src="../assets/images/power-off-solid.svg" alt="Close app">
+                </div>
+            </div>
+            <div class="app-listener-name" id="app-listener-name">
+                Nenhum app selecionado.
+            </div>
+        </div>
+
+        <script src="../controllers/index.js"></script>
+    </body>
+</html>

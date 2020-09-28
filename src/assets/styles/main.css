@@ -1,0 +1,61 @@
+/*
+ * https://coolors.co/111517-1a1f23-20262b-2b343b-343e46
+ * https://tableless.com.br/introducao-ao-electron/
+ */
+
+body { 
+    margin: 0; 
+    padding: 0; 
+    background: #111517; 
+    color: #fff; 
+    font-size: 16px; 
+    font-family: 'Montserrat', 'Helvetica', 'Arial', sans-serif; 
+    -webkit-app-region: drag;
+    -webkit-user-select: none;
+    border: 1px solid #000;
+    border-radius: 0;
+}
+button { -webkit-app-region: no-drag; }
+
+h1 { margin: 0 0 10px 0; padding: 0 0 5px 0; border-bottom: 1px solid #343E46; font-size: 22px; font-weight: 300; }
+
+.app-wrapper { padding: 5px; }
+.app-wrapper .app-timer { padding: 5px; border: 1px solid #343E46; background: #20262B; text-align: center; font-size: 24px; font-weight: 300 }
+.app-wrapper .app-timer.paused { color: #343E46 }
+.app-wrapper .app-timer .timer-hours {  }
+.app-wrapper .app-timer .timer-minutes {  }
+.app-wrapper .app-timer .timer-seconds {  }
+
+.app-wrapper .app-listener-name { font-size: 0.75em; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
+
+.app-wrapper .app-actions { display: flex; flex-direction: row; justify-content: space-between; margin-top: 5px; align-items: center; }
+.app-wrapper .app-actions .btn-timer { padding: 8px 8px; border: 0; color: #eee; transition: all 0.2s linear; text-align: center; cursor: pointer; -webkit-app-region: no-drag; }
+.app-wrapper .app-actions .btn-timer img { width: 15px; height: 15px;  filter: invert(50%); transition: all 0.2s linear; }
+.app-wrapper .app-actions .btn-timer:hover { color: #fff }
+.app-wrapper .app-actions .btn-timer:hover img { filter: invert(100%) }
+.app-wrapper .app-actions .btn-timer-reset {  }
+.app-wrapper .app-actions .btn-timer-run {  }
+.app-wrapper .app-actions .btn-timer-run img { width: 25px; height: 25px; }
+.app-wrapper .app-actions .btn-timer-config {  }
+.app-wrapper .app-actions .btn-timer-close {  }
+
+.form { display: flex; flex-direction: column; height: calc(100% - 10px); }
+.form .form-row { display: flex; justify-content: space-between; margin-bottom: 5px; align-items: center; }
+.form .form-row label { width: 50%; }
+.form .form-row input { width: 50%; padding: 5px; border: 1px solid #343E46; background: #20262B; color: #fff; font-size: 16px; }
+.form input:invalid { border: 1px solid #f00 }
+
+.btn { padding: 8px 16px; border: 0; background: #20262B; color: #eee; transition: all 0.2s linear; text-align: center; cursor: pointer; font-size: 12px; -webkit-app-region: no-drag; }
+.btn:hover { color: #fff }
+.btn:disabled { background: #111517; color: #343E46 }
+
+.config-actions { display: flex; justify-content: space-between; }
+
+.process-list { display: flex; flex-direction: column; overflow: auto; flex-grow: 1; margin-bottom: 5px; border: 1px solid #343E46; background: #20262B; }
+.process-list .alert { display: flex; justify-content: center; flex-direction: column; width: 100%; align-content: center; align-self: center; text-align: center; color: #343E46 }
+.process-list .info { display: flex; justify-content: center; flex-direction: column; width: 100%; align-content: center; align-self: center; text-align: center; color: #fff }
+
+.process-list .process-list-item { padding: 10px; border-bottom: 1px solid #343E46; }
+.process-list .process-list-item label { width: 100%; display: flex; }
+.process-list .process-list-item label input { margin-right: 5px; }
+.process-list .process-list-item label span { display: block; flex-grow: 1; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
