@@ -1,5 +1,6 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow, ipcMain, Menu} = require('electron');
+const windowStateKeeper = require('electron-window-state');
 
 // Cria a estrutura do menu do sistema
 // import mainMenuTemplate from './electron/MainMenu.js';
@@ -16,7 +17,7 @@ const mainMenuTemplate = [];
 
 // app.disableHardwareAcceleration();
 
-app.setName('ArtTimer');
+//app.setName('ArtTimer');
 if (process.platform === 'darwin') {
 
     app.setAboutPanelOptions({
@@ -42,6 +43,8 @@ if (process.platform === 'darwin') {
     });
 }
 
+process.env.NODE_ENV = 'production';
+process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = true;
 // delete process.env.ELECTRON_ENABLE_SECURITY_WARNINGS;
 // process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = true;
 
@@ -50,6 +53,10 @@ if (process.platform === 'darwin') {
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 function createWindow () {
+    app.allowRendererProcessReuse = false;
+
+    const mainWindowState = windowStateKeeper({});
+
     // Create the browser window.
     mainWindow = new BrowserWindow({
         width: 180, 
@@ -58,12 +65,13 @@ function createWindow () {
         frame: false,
         minimizable: false,
         maximizable: false,
-        closable: false,
-        // movable:true,
         resizable: false,
         hasShadow: false,
+        closable: false,
         transparent: true,
         alwaysOnTop: true,
+        x: mainWindowState.x,
+        y: mainWindowState.y,
         titleBarStyle: 'hidden',
         title: "ArtTimer",
         webPreferences: {
@@ -89,6 +97,7 @@ function createWindow () {
         app.quit();
     });
 
+    mainWindowState.manage(mainWindow);
     // Adiciona o menu através de um template
     if (process.platform === 'darwin') {
         // const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
@@ -142,6 +151,11 @@ function createConfigWindow() {
             width: 300, 
             height: 400, 
             show: false,
+            frame: false,
+            minimizable: false,
+            maximizable: false,
+            resizable: false,
+            titleBarStyle: 'hidden',
             parent: mainWindow,
             modal: true,
             webPreferences: {

@@ -28,12 +28,13 @@
   "dependencies": {
     "active-win": "^6.2.0",
     "electron-active-window": "0.0.4",
+    "electron-window-state": "^5.0.3",
     "iohook": "^0.6.6",
     "ps-list": "^7.2.0"
   },
   "devDependencies": {
     "electron-builder": "^22.8.1",
-    "electron": "4.0.4"
+    "electron": "7.3.3"
   },
   "scripts": {
     "start": "electron .",
@@ -45,7 +46,7 @@
   "iohook": {
     "targets": [
       "node-83",
-      "electron-69"
+      "electron-75"
     ],
     "platforms": [
       "win32",

@@ -15,7 +15,7 @@ body {
     border: 1px solid #000;
     border-radius: 0;
 }
-button { -webkit-app-region: no-drag; }
+button, input, label { -webkit-app-region: no-drag; }
 
 h1 { margin: 0 0 10px 0; padding: 0 0 5px 0; border-bottom: 1px solid #343E46; font-size: 22px; font-weight: 300; }
 
